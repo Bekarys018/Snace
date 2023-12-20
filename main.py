@@ -1,3 +1,4 @@
+# pygame кітапханасын импорттаймыз
 import pygame
 # exit системдык функциясын импорттаймыз
 import sys
@@ -180,12 +181,22 @@ def update_screen(screen, game_state):
 
 def print_new_game_message(screen):
     font = pygame.font.SysFont("Courier New", FONT_SIZE, bold=True)
+    font3 = pygame.font.SysFont("Courier New", 112, bold=True)
+    font4 = pygame.font.SysFont("Courier New", 15, bold=True)
+    text3 = font3.render("SNAKE GAME", True, TEXT_COLOR)
     text1 = font.render("Press ENTER to start new game ", True, TEXT_COLOR)  # экранга коюга болатын текст
     text2 = font.render("Press ESCAPE to quit ", True, TEXT_COLOR)  # экранга коюга болатын текст
+    text4 = font4.render("АРУЖАН АПАЙ ТОП", True, TEXT_COLOR)
+    text_rect3 = text1.get_rect()
     text_rect1 = text1.get_rect()  # оны окружать ететин прямоугольник гет рект онын координаттарын кайтарады
     text_rect2 = text2.get_rect()
-    text_rect1.center = (WIDTH // 2, HEIGHT // 2 - FONT_SIZE )  # прямоугольникты ортага карай кояды
-    text_rect2.center = (WIDTH // 2, HEIGHT // 2 + FONT_SIZE )  # прямоугольникты
+    text_rect4= text4.get_rect()
+    text_rect4.center =(WIDTH // 2, HEIGHT // 2 + FONT_SIZE*7)
+    text_rect3.center = ((WIDTH // 2)-15, HEIGHT // 2 - FONT_SIZE*3)
+    text_rect1.center = (WIDTH // 2, HEIGHT // 2 + FONT_SIZE )  # прямоугольникты ортага карай кояды
+    text_rect2.center = (WIDTH // 2, HEIGHT // 2 + FONT_SIZE*2.5 )  # прямоугольникты
+    screen.blit(text4, text_rect4)
+    screen.blit(text3, text_rect3)
     screen.blit(text1, text_rect1)  # расположение текста
     screen.blit(text2, text_rect2)  # расположение текста
 def print_game_paused_message(screen):
@@ -194,7 +205,7 @@ def print_game_paused_message(screen):
     text2 = font.render("Press ESCAPE to start new game ", True, TEXT_COLOR)  # экранга коюга болатын текст
     text_rect1 = text1.get_rect()  # оны окружать ететин прямоугольник гет рект онын координаттарын кайтарады
     text_rect2 = text2.get_rect()
-    text_rect1.center = (WIDTH // 2, HEIGHT // 2-FONT_SIZE)  # прямоугольникты ортага карай кояды
+    text_rect1.center = ((WIDTH // 2), HEIGHT // 2-FONT_SIZE)  # прямоугольникты ортага карай кояды
     text_rect2.center = (WIDTH // 2, HEIGHT // 2+FONT_SIZE)  # прямоугольникты
     screen.blit(text1, text_rect1)  # расположение текста
     screen.blit(text2, text_rect2)  # расположение текста
